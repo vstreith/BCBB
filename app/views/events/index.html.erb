@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>Tous les évènements : </h1>
+      <% @events.each do |event| %>
+
+        <div class="event">
+
+          <div class="inscription-container" id="event-<%=event.id%>">
+            <%= render "/inscriptions/show", event: event %>
+          </div>
+
+          <div class='event-body'>
+            <h4> <%= event.name %> - <%= event.event_type %></h4>
+            <% if current_user.voted_for?(event) %>
+            <p>
+              <span class="label label-success">
+                <%= "Inscrit !" %> 
+              </span>
+            </p>
+            <% else %>
+            <p>
+              <span class="label label-danger">
+                <%= "Tu n'es pas inscrit :(" %>
+              </span>
+            </p>
+            <% end %>
+            <p> <%= event.tagline %> </p>
+          </div>
+          <ul class="list-inline event-controls hidden-sm hidden-xs">
+            <li>
+              <%= link_to event_path(event) do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</div>

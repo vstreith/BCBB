@@ -1,0 +1,16 @@
+  <% if current_user.voted_for?(event) %>
+    <%= link_to inscription_path(current_user.inscriptions.where(event: event).first), remote: true,
+     method: :delete, class: 'event-inscription event-registered' do %>
+    <div class="event-arrow"></div>
+        <div class='event-count'>
+          <%= event.inscriptions.size %>
+        </div>
+    <% end %>
+  <% else %>
+    <%= link_to inscriptions_path(event_id: event.id), remote: true, method: :post, class: 'event-inscription' do %>
+    <div class="event-arrow"></div>
+        <div class='event-count'>
+          <%= event.inscriptions.size %>
+        </div>
+    <% end %>
+  <% end %>

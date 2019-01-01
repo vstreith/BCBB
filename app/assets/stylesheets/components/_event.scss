@@ -1,0 +1,119 @@
+.event {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  //border: 1px solid #FF8C00;
+  transition: all 0.15s ease;
+  background-color: white;
+  margin: 15px;
+}
+
+/* Body design */
+.event-body {
+  flex: 1 1 auto;
+}
+.event-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.event-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* event image */
+.event-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+/* Upvote design */
+.event-inscription {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.event-registered, a.event-inscription.event-registered {
+  color: #008000;
+}
+.event-registered .event-arrow {
+  border-bottom-color: #008000;
+}
+
+a.event-inscription {
+  color: black;
+}
+
+.event-count {
+  margin: 2px 0 0;
+}
+.event-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+/* Controls design */
+.event-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.event-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #b8b8b8;
+}
+.event-controls a:hover {
+  color: #D3473C !important
+}
+.event-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.event:hover {
+  background: #f7f7fa;
+  opacity: 1;
+  text-decoration: none;
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  cursor: pointer;
+}
+a.event-inscription:hover a.event-inscription:focus {
+  text-decoration: none;
+}
+.event-inscription:hover, .event-inscription.event-inscription-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.event-inscription-upvoted .event-arrow {
+  border-bottom-color: #5898f1;
+}
+// .event:hover .event-upvote {
+//   transform: scale(1.2)
+// }
+.event:hover .event-controls-hidden a {
+  color: #E6E6E6;
+}
+.event-inscription:hover .event-arrow {
+  border-bottom: 9px solid #5898f1;
+}

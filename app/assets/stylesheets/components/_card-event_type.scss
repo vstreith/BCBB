@@ -1,0 +1,23 @@
+.card-event_type {
+  display: block;
+  margin: 30px;
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.card-event_type:hover {
+  color: white;
+}
+
+.card-event_type.Interclub {
+  background-color: #6495ED;
+}
+.card-event_type.Général {
+  background-color: #6495ED;
+}
+.card-event_type.Tournoi {
+  background-color: #6495ED;
+}

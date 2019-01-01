@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <h1>
+        Détails de l'évènement
+      </h1>
+
+      <h3>
+        <%= @event.name %>
+        <span class="label label-purple">
+          <%= @event.event_type %>
+        </span>
+      </h3>
+
+      <% if current_user.voted_for?(@event) %>
+      <p>
+        <span class="label label-success">
+          <%= 'Inscrit' %>
+        </span>
+      </p>
+      <% else %>
+      <p>
+        <span class="label label-danger">
+          <%= "Tu dois encore t'inscrire !" %>
+        </span>
+      </p>
+      <% end %>
+      <p>
+        <%= @event.tagline %>
+      </p>
+      <p>
+        <%= @event.date %>
+      </p>
+      <p>
+        <% if current_user == @event.user %>
+        <%= link_to "Modifier", edit_event_path(@event), class: "btn bcbb-btn-medium-warning" %>
+        <%= link_to "Retour", events_path, class: "btn bcbb-btn-medium-primary" %>
+        <%= link_to "Supprimer", event_path(@event), method: :delete, class: "btn bcbb-btn-medium-danger" %>
+        <%else%>
+        <%= link_to "Retour", events_path, class: "btn bcbb-btn-medium-primary" %>
+        <% end %>
+      </p>
+      <div class="col-sm-6">
+          <h4>Listes des membres inscrits à l'évènement :</h4>
+          <% @inscriptions.each do |inscription| %>
+              <div class='inscription-list'>
+                <p> <%= inscription.user.name %> <%= inscription.user.surname %></p>
+              </div>
+          <% end %>
+      </div>
+    </div>
+      <div class="col-sm-6">
+        <div class="message">
+          <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+            <div class="message-name">
+              <h3>Juliette Stahl</h3>
+              <p>10/07/17</p>
+            </div>
+          <div class="message-body">
+            <p><strong>I am not sure yet!</strong></p>
+            <p>
+              Je ne suis pas encore sûre d'être là... Je travaille normalement de nuit ...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

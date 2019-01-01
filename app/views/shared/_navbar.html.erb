@@ -1,0 +1,46 @@
+
+<div class="navbar-bcbb">
+<!-- Logo -->
+<a href="/" class="navbar-bcbb-brand">
+<%= image_tag "logo_bcbb.png" %>
+</a>
+<!-- Right Navigation -->
+<div class="navbar-bcbb-right hidden-xs hidden-sm">
+  <%=link_to "Accéder au site du BCBB", "http://badminton-barr.fr", class: "navbar-bcbb-item navbar-bcbb-link" ,:target => "_blank" %>
+    <% if user_signed_in? %>
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-bcbb-item">
+        <div class="dropdown">
+          <img src='images/logo-BCBB-black.png' class="avatar-large" id="navbar-bcbb-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-bcbb-dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li>
+              <%= link_to "Déconnexion",destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+      </div>
+          <!-- Button (call-to-action)-->
+      <%= link_to "Ajouter un évènement", new_event_path, class:"navbar-bcbb-item bcbb-btn-medium-primary btn" %>
+
+  <% else %>
+    <%= link_to "Connexion", new_user_session_path, class: "navbar-bcbb-item navbar-bcbb-link" %>
+    <%= link_to "Inscription", new_user_registration_path, class: "navbar-bcbb-item navbar-bcbb-link" %>
+  <% end %>
+  </div>
+
+
+
+    <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-bcbb-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-bcbb-dropdown-menu">
+        <li><a href="#">Host</a></li>
+        <li><a href="#">Trips</a></li>
+        <li><a href="#">Messagese</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

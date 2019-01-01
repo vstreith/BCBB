@@ -1,0 +1,7 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :name, placeholder:"Nom", label: "Nom de l'évènement :" %>
+  <%= f.input :event_type, collection: ["Interclub", "Général", "Tournoi"], prompt: "Quel type d'évènement?" %>
+  <%= f.input :tagline, placeholder: "...", label:"Description" %>
+  <%= f.input :date %>
+  <%= f.button :submit, "Ajouter", class: "btn bcbb-btn-medium-primary"%>
+<% end %>
